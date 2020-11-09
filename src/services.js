@@ -137,4 +137,18 @@ export default {
     width: 600,
     id: ids => ids.join('/status/'),
   },
+  gdrive: {
+    regex: /drive\.google\.com\/file\/d\/(.*?)\//,
+    embedUrl: 'https://drive.google.com/file/d/<%= remote_id %>/preview',
+    html: '<iframe width="640" height="480"></iframe>',
+    height: 320,
+    width: 580,
+  },
+  facebook: {
+    regex: /^https?:\/\/www\.facebook\.com.*\/(?:video(?:s)?|watch|story)(?:\.php?|\/)(?:\?v=)*(\d+)/,
+    embedUrl: 'https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FNextFabStudio%2Fvideos%2F<%= remote_id %>%2F&show_text=0&width=560',
+    html: '<iframe width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>',
+    height: 300,
+    width: 600,
+  }
 };

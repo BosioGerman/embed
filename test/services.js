@@ -289,6 +289,48 @@ describe('Services Regexps', () => {
     });
   });
 
+  it('GDrive', async () => {
+    const service = 'gdrive';
+
+    const urls = [
+      {source: 'https://drive.google.com/file/d/1lhBsZa0z4K0vLfjPwT0clBhvPu0GrSqh/view', embed: 'https://drive.google.com/file/d/1lhBsZa0z4K0vLfjPwT0clBhvPu0GrSqh/preview'},
+    ];
+
+    urls.forEach(url => {
+      expect(patterns[service].test(url.source)).to.be.true;
+
+      const event = composePasteEventMock('pattern', service, url.source);
+
+      embed.onPaste(event);
+
+      expect(embed.data.service).to.be.equal(service);
+      expect(embed.data.embed).to.be.equal(url.embed);
+      expect(embed.data.source).to.be.equal(url.source);
+    });
+  });
+
+  it('Facebook', async () => {
+    const service = 'facebook';
+
+    const urls = [
+      {source: 'https://www.facebook.com/watch/?v=10155850755829458', embed: 'https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FNextFabStudio%2Fvideos%2F10155850755829458%2F&show_text=0&width=560'},
+      {source: 'https://www.facebook.com/video.php?v=10155850755829458', embed: 'https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FNextFabStudio%2Fvideos%2F10155850755829458%2F&show_text=0&width=560'},
+      {source: 'https://www.facebook.com/username1/videos/10155850755829458', embed: 'https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2FNextFabStudio%2Fvideos%2F10155850755829458%2F&show_text=0&width=560'},
+    ];
+
+    urls.forEach(url => {
+      expect(patterns[service].test(url.source)).to.be.true;
+
+      const event = composePasteEventMock('pattern', service, url.source);
+
+      embed.onPaste(event);
+
+      expect(embed.data.service).to.be.equal(service);
+      expect(embed.data.embed).to.be.equal(url.embed);
+      expect(embed.data.source).to.be.equal(url.source);
+    });
+  });
+
   it('Patterns', async () => {
     const services = {
       youtube: 'https://www.youtube.com/watch?v=wZZ7oFKsKzY',
