@@ -343,7 +343,9 @@ describe('Services Regexps', () => {
       'yandex-music-album': 'https://music.yandex.ru/album/5643859',
       'yandex-music-track': 'https://music.yandex.ru/album/5643859/track/42662275',
       'yandex-music-playlist': 'https://music.yandex.ru/users/yamusic-personal/playlists/25098905',
-      'codepen': 'https://codepen.io/Rikkokiri/pen/RYBrwG'
+      'codepen': 'https://codepen.io/Rikkokiri/pen/RYBrwG',
+      gdrive: 'https://drive.google.com/file/d/1lhBsZa0z4K0vLfjPwT0clBhvPu0GrSqh/view',
+      facebook: 'https://www.facebook.com/watch/?v=10155850755829458'
     };
 
     Object
